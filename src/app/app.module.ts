@@ -9,6 +9,7 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 import { HttpClientModule } from '@angular/common/http';
 import { MovieApiServiceService } from './service/movie-api-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SwiperModule
   ],
   providers: [MovieApiServiceService],
   bootstrap: [AppComponent]

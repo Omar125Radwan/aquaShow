@@ -21,23 +21,24 @@
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  .rowing {
-    max-width: 100px;
-    object-fit: contain;
-    width: 100%;
-    box-sizing: content-box;
-    transition: transform 450ms;
-    margin-right: 5px;
-    &:hover {
-      transform: scale(1.09);
-      cursor: pointer;
-    }
-  }
-  .largeposter {
-    max-height: 300px;
-    max-width: 300px;
-  }
 }
 .rowposter::-webkit-scrollbar {
   display: none;
+}
+.rowing {
+  max-width: 100px;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  transition: transform 450ms;
+  margin-right: 5px;
+  &:hover {
+    transform: scale(1.09);
+    cursor: pointer;
+  }
+}
+.largeposter {
+  max-height: 300px;
+  max-width: 300px;
 }
