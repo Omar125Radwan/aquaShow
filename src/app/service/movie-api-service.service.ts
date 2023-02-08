@@ -40,7 +40,37 @@ export class MovieApiServiceService {
   }
 
   fetchSingleTypeMovies(genr: string): Observable<any> {
-    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=${genr}`);
+    /* if(genr === 'aciton') {
+      return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=${genr}`);
+    } else {
+      return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=${genr}`);
+    } */
+    switch (genr) {
+      case 'action':
+        return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=28`);
+        break;
+      case 'advaenture':
+        return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=18`);
+        break;
+      case 'animation':
+        return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=16`);
+        break;
+      case 'comedy':
+        return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=35`);
+        break;
+      case 'documantary':
+        return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=99`);
+        break;
+      case 'ScienceFiction':
+        return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=878`);
+        break;
+      case 'thriller':
+        return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=53`);
+        break;
+      default:
+        return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=${genr}`);
+        break;
+    }
   }
 
 }

@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { exhaustMap, from, map, Observable, of } from 'rxjs';
 import { MovieApiServiceService } from 'src/app/service/movie-api-service.service';
 import SwiperCore, {
-  SwiperOptions,
   Navigation, Pagination, Scrollbar,
   A11y, Virtual, Zoom,
   Autoplay,
   Thumbs,
   Controller
 } from 'swiper';
-import { SwiperComponent } from "swiper/angular";
 SwiperCore.use([
   Navigation,
   Pagination,
@@ -60,6 +57,7 @@ export class HomeComponent implements OnInit {
   ];
   bannerResult: any = [];
   trendingMovieResult: any = [];
+  getDataResult: any = []
   actionMovieResult: any = [];
   adventureMovieResult: any = [];
   animationMovieResult: any = [];
@@ -115,6 +113,7 @@ export class HomeComponent implements OnInit {
     this.documantaryData(genrNumber);
     this.scienceFictionData(genrNumber);
     this.thrilleData(genrNumber);
+    this.getData('28');
   }
   bannerData() {
     this.service.bannerApiData().subscribe((result) => {
@@ -126,6 +125,14 @@ export class HomeComponent implements OnInit {
     this.service.trendingMovieApiData().subscribe((res) => {
       this.trendingMovieResult = res.results;
     })
+  }
+
+  getData(sort: string): void {
+    this.service
+      .fetchSingleTypeMovies(sort)
+      .subscribe((res) => {
+        this.getDataResult = res.results;
+      });
   }
 
   actionData(genr: Array<string>) {

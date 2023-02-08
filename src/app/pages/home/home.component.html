@@ -1,3 +1,20 @@
+<div class="mt-3 p-3">
+  <select class="mb-3 form-control" (change)="getData($any($event.target).value)">
+    <option *ngFor="let i of categories">
+      {{i.name}}
+    </option>
+  </select>
+  <swiper [config]="swiperConfig" [spaceBetween]="2" (swiper)="setControlledSwiper($event)"
+    [scrollbar]="{ draggable: true }" [watchSlidesProgress]="true" [autoplay]="{ delay: 1000, disableOnInteraction: false }">
+    <ng-container *ngFor="let a of getDataResult">
+      <ng-template swiperSlide>
+        <img src="https://image.tmdb.org/t/p/original/{{a.poster_path}}" class="rowing" alt=""
+          [routerLink]="['/movie', a.id]">
+      </ng-template>
+    </ng-container>
+  </swiper>
+</div>
+
 <!-- banner starts -->
 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
   <div class="carousel-inner">
