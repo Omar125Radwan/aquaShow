@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { exhaustMap, from, map, Observable, of } from 'rxjs';
 import { MovieApiServiceService } from 'src/app/service/movie-api-service.service';
 import SwiperCore, {
   SwiperOptions,
@@ -28,6 +28,37 @@ SwiperCore.use([
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  categories = [
+    {
+      name: 'action',
+      genr: '28',
+    },
+    {
+      name: 'advaenture',
+      genr: '12',
+    },
+    {
+      name: 'animation',
+      genr: '16',
+    },
+    {
+      name: 'comedy',
+      genr: '35',
+    },
+    {
+      name: 'documantary',
+      genr: '99',
+    },
+    {
+      name: 'ScienceFiction',
+      genr: '878',
+    },
+    {
+      name: 'thriller',
+      genr: '53',
+    },
+  ];
+  getData: any = [];
   bannerResult: any = [];
   trendingMovieResult: any = [];
   actionMovieResult: any = [];
@@ -71,18 +102,23 @@ export class HomeComponent implements OnInit {
       },
     }
   }
+
   ngOnInit(): void {
+    let generName = this.categories.map((genrName) => {
+      return genrName.genr;
+    });
     this.bannerData();
     this.trendingData();
-    this.comedynData();
-    this.thrilleData();
-    this.actionData();
-    this.documantaryData();
-    this.animationData();
-    this.advantureData();
-    this.scienceFictionData();
+    this.actionData(generName[0]);
+    this.advantureData(generName[1]);
+    this.animationData(generName[2]);
+    this.comedynData(generName[3]);
+    this.documantaryData(generName[4]);
+    this.scienceFictionData(generName[5]);
+    this.thrilleData(generName[6]);
+    this.getByCategoryData(generName.map(() => {}));
+    console.log(generName);
   }
-
   bannerData() {
     this.service.bannerApiData().subscribe((result) => {
       this.bannerResult = result.results;
@@ -95,44 +131,50 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  actionData() {
-    this.service.fetchActionMovies().subscribe((res) => {
+  getByCategoryData(genr: any) {
+    this.service.fetchSingleTypeMovies(genr).subscribe((res) => {
+      this.getData = res.results;
+    });
+  }
+
+  actionData(genr: string) {
+    this.service.fetchSingleTypeMovies(genr).subscribe((res) => {
       this.actionMovieResult = res.results;
     })
   }
 
-  advantureData() {
-    this.service.fetchAdventureMovies().subscribe((res) => {
+  advantureData(genr: string) {
+    this.service.fetchSingleTypeMovies(genr).subscribe((res) => {
       this.adventureMovieResult = res.results;
     })
   }
 
-  animationData() {
-    this.service.fetchAnimationMovies().subscribe((res) => {
+  animationData(genr: string) {
+    this.service.fetchSingleTypeMovies(genr).subscribe((res) => {
       this.animationMovieResult = res.results;
     })
   }
 
-  comedynData() {
-    this.service.fetchComedyMovies().subscribe((res) => {
+  comedynData(genr: string) {
+    this.service.fetchSingleTypeMovies(genr).subscribe((res) => {
       this.comedyMovieResult = res.results;
     })
   }
 
-  documantaryData() {
-    this.service.fetchDocumantaryMovies().subscribe((res) => {
+  documantaryData(genr: string) {
+    this.service.fetchSingleTypeMovies(genr).subscribe((res) => {
       this.documantaryMovieResult = res.results;
     })
   }
 
-  scienceFictionData() {
-    this.service.fetchScienceFictionMovies().subscribe((res) => {
+  scienceFictionData(genr: string) {
+    this.service.fetchSingleTypeMovies(genr).subscribe((res) => {
       this.scienceFictionMovieResult = res.results;
     })
   }
 
-  thrilleData() {
-    this.service.fetchThrillerMovies().subscribe((res) => {
+  thrilleData(genr: string) {
+    this.service.fetchSingleTypeMovies(genr).subscribe((res) => {
       this.thrilleMovieResult = res.results;
     })
   }

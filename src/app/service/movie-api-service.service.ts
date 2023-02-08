@@ -39,37 +39,8 @@ export class MovieApiServiceService {
     return this.http.get(`${this.baseurl}/movie/${data}/credits?api_key=${this.apiKey}`);
   }
 
-  //action
-  fetchActionMovies(): Observable<any> {
-    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=28`)
-  }
-  //advaenture
-  fetchAdventureMovies(): Observable<any> {
-    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=12`)
-  }
-  //animation
-  fetchAnimationMovies(): Observable<any> {
-    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=16`)
-  }
-  //comedy
-  fetchComedyMovies(): Observable<any> {
-    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=35`);
-  }
-  //documantary
-  fetchDocumantaryMovies(): Observable<any> {
-    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=99`);
-  }
-  //ScienceFiction
-  fetchScienceFictionMovies(): Observable<any> {
-    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=878`);
-  }
-  //thriller
-  fetchThrillerMovies(): Observable<any> {
-    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=53`);
-  }
-
-  fetchSingleTypeMovies(type: any): Observable<any> {
-    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=${type}`);
+  fetchSingleTypeMovies(genr: any): Observable<any> {
+    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=${genr}`);
   }
 
 }
