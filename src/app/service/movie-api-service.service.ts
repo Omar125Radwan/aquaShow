@@ -39,7 +39,7 @@ export class MovieApiServiceService {
     return this.http.get(`${this.baseurl}/movie/${data}/credits?api_key=${this.apiKey}`);
   }
 
-  fetchSingleTypeMovies(genr: any): Observable<any> {
+  fetchSingleTypeMovies(genr: string): Observable<any> {
     return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=${genr}`);
   }
 
