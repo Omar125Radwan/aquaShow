@@ -27,7 +27,7 @@
     <div class="rowposter mt-3">
       <ng-container *ngFor="let t of trendingMovieResult">
         <img src="https://image.tmdb.org/t/p/original/{{t.poster_path}}" class="rowing largeposter" alt=""
-          [routerLink]="['movie', t.id]">
+          [routerLink]="['/movie', t.id]">
       </ng-container>
     </div>
   </div>
@@ -42,7 +42,7 @@
     <ng-container *ngFor="let a of actionMovieResult">
       <ng-template swiperSlide>
         <img src="https://image.tmdb.org/t/p/original/{{a.poster_path}}" class="rowing" alt=""
-          [routerLink]="['movie', a.id]">
+          [routerLink]="['/movie', a.id]">
       </ng-template>
     </ng-container>
   </swiper>
@@ -55,7 +55,7 @@
     <ng-container *ngFor="let a of adventureMovieResult">
       <ng-template swiperSlide>
         <img src="https://image.tmdb.org/t/p/original/{{a.poster_path}}" class="rowing" alt=""
-          [routerLink]="['movie', a.id]">
+          [routerLink]="['/movie', a.id]">
       </ng-template>
     </ng-container>
   </swiper>
@@ -68,7 +68,7 @@
     <ng-container *ngFor="let a of animationMovieResult">
       <ng-template swiperSlide>
         <img src="https://image.tmdb.org/t/p/original/{{a.poster_path}}" class="rowing" alt=""
-          [routerLink]="['movie', a.id]">
+          [routerLink]="['/movie', a.id]">
       </ng-template>
     </ng-container>
   </swiper>
@@ -81,7 +81,7 @@
     <ng-container *ngFor="let c of comedyMovieResult">
       <ng-template swiperSlide>
         <img src="https://image.tmdb.org/t/p/original/{{c.poster_path}}" class="rowing" alt=""
-          [routerLink]="['movie', c.id]">
+          [routerLink]="['/movie', c.id]">
       </ng-template>
     </ng-container>
   </swiper>
@@ -94,7 +94,7 @@
     <ng-container *ngFor="let s of scienceFictionMovieResult">
       <ng-template swiperSlide>
         <img src="https://image.tmdb.org/t/p/original/{{s.poster_path}}" class="rowing" alt=""
-          [routerLink]="['movie', s.id]">
+          [routerLink]="['/movie', s.id]">
       </ng-template>
     </ng-container>
   </swiper>
@@ -107,7 +107,7 @@
     <ng-container *ngFor="let t of thrilleMovieResult">
       <ng-template swiperSlide>
         <img src="https://image.tmdb.org/t/p/original/{{t.poster_path}}" class="rowing" alt=""
-          [routerLink]="['movie', t.id]">
+          [routerLink]="['/movie', t.id]">
       </ng-template>
     </ng-container>
   </swiper>
@@ -120,7 +120,7 @@
     <ng-container *ngFor="let d of documantaryMovieResult">
       <ng-template swiperSlide>
         <img src="https://image.tmdb.org/t/p/original/{{d.poster_path}}" class="rowing" alt=""
-          [routerLink]="['movie', d.id]">
+          [routerLink]="['/movie', d.id]">
       </ng-template>
     </ng-container>
   </swiper>

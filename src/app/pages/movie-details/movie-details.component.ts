@@ -40,7 +40,6 @@ export class MovieDetailsComponent implements OnInit {
   getMovieCast(id: any) {
     this.service.getMovieCast(id).subscribe((res) => {
       this.getMovieCastResult = res.cast;
-      console.log(res.cast);
     })
   }
 

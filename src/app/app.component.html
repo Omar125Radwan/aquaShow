@@ -1,5 +1,5 @@
 <!-- navbar starts -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" [ngStyle]="navbg">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" [ngStyle]="navbg">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="">AQUASHOW</a>
     <div class="navbar-collapse" id="navbarNav">
@@ -9,6 +9,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/search">Search</a>
+        </li>
+        <li class="nav-item" *ngFor="let cate of categories">
+          <a class="nav-link" [routerLink]="['/category/'+cate.genr]">{{cate.name}}</a>
         </li>
       </ul>
     </div>

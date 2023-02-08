@@ -1,0 +1,9 @@
+<div class="mt-5 container">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 mb-3" *ngFor="let m of Movies">
+      <a [routerLink]="['/movie', m.id]">
+        <img width="200px" height="200px" src="https://image.tmdb.org/t/p/original/{{m.backdrop_path}}" alt="">
+      </a>
+    </div>
+  </div>
+</div>

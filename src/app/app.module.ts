@@ -10,13 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieApiServiceService } from './service/movie-api-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SwiperModule } from 'swiper/angular';
+import { CateogryViewComponent } from './pages/cateogry-view/cateogry-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    CateogryViewComponent
   ],
   imports: [
     BrowserModule,

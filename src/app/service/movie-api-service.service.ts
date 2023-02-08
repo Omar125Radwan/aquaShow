@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, share } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -66,6 +66,10 @@ export class MovieApiServiceService {
   //thriller
   fetchThrillerMovies(): Observable<any> {
     return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=53`);
+  }
+
+  fetchSingleTypeMovies(type: any): Observable<any> {
+    return this.http.get(`${this.baseurl}/discover/movie?api_key=${this.apiKey}&with_genres=${type}`);
   }
 
 }
