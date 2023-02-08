@@ -116,8 +116,6 @@ export class HomeComponent implements OnInit {
     this.documantaryData(generName[4]);
     this.scienceFictionData(generName[5]);
     this.thrilleData(generName[6]);
-    this.getByCategoryData(generName.map(() => {}));
-    console.log(generName);
   }
   bannerData() {
     this.service.bannerApiData().subscribe((result) => {
@@ -129,12 +127,6 @@ export class HomeComponent implements OnInit {
     this.service.trendingMovieApiData().subscribe((res) => {
       this.trendingMovieResult = res.results;
     })
-  }
-
-  getByCategoryData(genr: any) {
-    this.service.fetchSingleTypeMovies(genr).subscribe((res) => {
-      this.getData = res.results;
-    });
   }
 
   actionData(genr: string) {
