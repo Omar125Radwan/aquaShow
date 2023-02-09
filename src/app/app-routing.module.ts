@@ -11,6 +11,7 @@ const routes: Routes = [
   {path: 'search', component: SearchComponent},
   {path: 'movie/:id', component: MovieDetailsComponent},
   {path: 'category/:cate', component: CateogryViewComponent},
+  {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
 ];
 
 @NgModule({
