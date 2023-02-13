@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,7 +12,7 @@ import { MovieApiServiceService } from './service/movie-api-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SwiperModule } from 'swiper/angular';
 import { CateogryViewComponent } from './pages/cateogry-view/cateogry-view.component';
-
+import { AngularFireModule } from '@angular/fire/compat'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { CateogryViewComponent } from './pages/cateogry-view/cateogry-view.compo
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    SwiperModule
+    SwiperModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [MovieApiServiceService],
   bootstrap: [AppComponent]

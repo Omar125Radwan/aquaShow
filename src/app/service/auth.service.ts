@@ -19,6 +19,12 @@ export class AuthService {
     );
   }
 
+  /* signUp(email: string, password: string): Observable<AuthResponseData> {
+    return this.http.post<AuthResponseData>(
+      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.FIREBASE_API_KEY}`,
+      { email, password, returnSecureToken: true }
+    );
+  } */
   signUp(email: string, password: string): Observable<AuthResponseData> {
     return this.http.post<AuthResponseData>(
       `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.FIREBASE_API_KEY}`,
@@ -26,7 +32,7 @@ export class AuthService {
     );
   }
 
-  getErrorMessage(message: string) {
+  /* getErrorMessage(message: string) {
     switch (message) {
       case 'EMAIL_NOT_FOUND':
         return 'Email Not Found';
@@ -74,6 +80,6 @@ export class AuthService {
       clearTimeout(this.timeoutInterval);
       this.timeoutInterval = null;
     }
-  }
+  } */
 
 }
