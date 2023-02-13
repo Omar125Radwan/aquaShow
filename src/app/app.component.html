@@ -10,8 +10,18 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/search">Search</a>
         </li>
-        <li class="nav-item" *ngFor="let cate of categories">
-          <a class="nav-link" [routerLink]="['/category/'+cate.genr]">{{cate.name}}</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categories
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item" *ngFor="let cate of categories">
+              <a class="nav-link" [routerLink]="['/category/'+cate.genr]">{{cate.name}}</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/auth/login">Login</a>
         </li>
       </ul>
     </div>
